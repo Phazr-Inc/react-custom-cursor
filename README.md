@@ -1,25 +1,25 @@
-# react-custom-cursor
+# @phazr/react-custom-cursor
 
 A lightweight and customizable React component that replaces the default cursor with a stylish, animated cursor.
 
-[![npm](https://img.shields.io/npm/v/react-custom-cursor)](https://www.npmjs.com/package/react-custom-cursor)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-custom-cursor)](https://bundlephobia.com/package/react-custom-cursor)
-[![npm downloads](https://img.shields.io/npm/dt/react-custom-cursor)](https://www.npmjs.com/package/react-custom-cursor)
+[![npm](https://img.shields.io/npm/v/@phazr/react-custom-cursor)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@phazr/react-custom-cursor)](https://bundlephobia.com/package/@phazr/react-custom-cursor)
+[![npm downloads](https://img.shields.io/npm/dt/@phazr/react-custom-cursor)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
 
 ## Installation
 
 You can install the package using npm, pnpm, or yarn:
 
 ```bash
-npm install react-custom-cursor
+npm install @phazr/react-custom-cursor
 ```
 
 ```bash
-pnpm add react-custom-cursor
+pnpm add @phazr/react-custom-cursor
 ```
 
 ```bash
-yarn add react-custom-cursor
+yarn add @phazr/react-custom-cursor
 ```
 
 ## Usage
@@ -30,8 +30,8 @@ Here's an example of how to set it up in a Next.js `layout.tsx` file:
 
 ```jsx
 // app/layout.tsx
-import { CursorProvider, Cursor } from "react-custom-cursor";
-import "react-custom-cursor/dist/cursor.css";
+import { CursorProvider, Cursor } from "@phazr/react-custom-cursor";
+import "@phazr/react-custom-cursor/dist/cursor.css";
 
 export default function RootLayout({ children }) {
   return (
@@ -69,8 +69,8 @@ import {
   Cursor,
   CursorVariants,
   CustomVariant,
-} from "react-custom-cursor";
-import "react-custom-cursor/dist/cursor.css";
+} from "@phazr/react-custom-cursor";
+import "@phazr/react-custom-cursor/dist/cursor.css";
 
 const customVariants: CursorVariants = {
   default: {
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
 The `useCursor` hook allows you to change the cursor's appearance from any component within the `CursorProvider`.
 
 ```jsx
-import { useCursor } from "react-custom-cursor";
+import { useCursor } from "@phazr/react-custom-cursor";
 
 function MyComponent() {
   const { setVariant, setText } = useCursor();

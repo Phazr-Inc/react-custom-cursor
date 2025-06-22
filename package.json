@@ -1,8 +1,8 @@
 {
-  "name": "react-custom-cursor",
-  "version": "0.1.2",
+  "name": "@phazr/react-custom-cursor",
+  "version": "0.1.1",
   "type": "module",
-  "description": "A reusable custom cursor component for React.",
+  "description": "A lightweight and highly customizable React component for creating unique and interactive cursor experiences.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
