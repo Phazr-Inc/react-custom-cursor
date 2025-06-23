@@ -1,6 +1,6 @@
 {
   "name": "@phazr/react-custom-cursor",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "description": "A lightweight and highly customizable React component for creating unique and interactive cursor experiences.",
   "main": "dist/index.js",
