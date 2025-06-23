@@ -1,3 +1,4 @@
+import "./cursor.css";
 export { default as Cursor } from "./Cursor";
 export { CursorProvider } from "./CursorProvider";
 export { CursorContext } from "./CursorContext";
