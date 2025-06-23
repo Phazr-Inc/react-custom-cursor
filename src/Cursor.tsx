@@ -2,7 +2,7 @@
 
 import { useCursor } from "./useCursor";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import React from "react";
+import * as React from "react";
 
 export type CursorStyle = {
   height: number;

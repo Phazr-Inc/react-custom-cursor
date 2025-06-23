@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import * as React from "react";
 import { CursorContext } from "./CursorContext";
 
 export function CursorProvider({ children }: { children: React.ReactNode }) {
-  const [variant, setVariant] = useState("default");
+  const [variant, setVariant] = React.useState("default");
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (variant !== "input") {
       document.body.classList.add("!cursor-none");
     } else {
@@ -14,7 +14,7 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
     }
   }, [variant]);
 
-  const setVariantCallback = useCallback((newVariant: string) => {
+  const setVariantCallback = React.useCallback((newVariant: string) => {
     setVariant(newVariant);
   }, []);
 

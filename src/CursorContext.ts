@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import * as React from "react";
 
-export const CursorContext = createContext<
+export const CursorContext = React.createContext<
   | {
       variant: string;
       setVariant: (variant: string) => void;
