@@ -6,11 +6,11 @@ export default function FAQ() {
         <h2 className="text-xl font-semibold mb-2">Cursor Not Appearing?</h2>
         <ul className="list-disc list-inside space-y-2">
           <li>
-            Make sure you've wrapped your app with{" "}
+            Make sure you've wrapped your app with{' '}
             <code className="font-mono">CursorProvider</code>.
           </li>
           <li>
-            Ensure you've included the{" "}
+            Ensure you've included the{' '}
             <code className="font-mono">&lt;Cursor /&gt;</code> component.
           </li>
           <li>

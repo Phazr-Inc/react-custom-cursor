@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   createContext,
@@ -7,12 +7,12 @@ import {
   useEffect,
   useState,
   type ReactNode,
-} from "react";
+} from 'react';
 import type {
   CursorContextType,
   CursorVariant,
   CustomCursorConfig,
-} from "./types";
+} from './types';
 
 interface CursorProviderProps {
   children: ReactNode;
@@ -25,31 +25,31 @@ const CursorContext = createContext<CursorContextType | null>(null);
 export const useCursor = () => {
   const context = useContext(CursorContext);
   if (!context) {
-    throw new Error("useCursor must be used within a CursorProvider");
+    throw new Error('useCursor must be used within a CursorProvider');
   }
   return context;
 };
 
 export function CursorProvider({
   children,
-  className = "",
+  className = '',
   enableOnTouch = false,
 }: CursorProviderProps) {
-  const [variant, setVariant] = useState<CursorVariant>("default");
+  const [variant, setVariant] = useState<CursorVariant>('default');
   const [customConfig, setCustomConfig] = useState<CustomCursorConfig>();
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     const checkTouchDevice = () => {
       setIsTouchDevice(
-        "ontouchstart" in window || navigator.maxTouchPoints > 0,
+        'ontouchstart' in window || navigator.maxTouchPoints > 0,
       );
     };
 
     checkTouchDevice();
-    window.addEventListener("resize", checkTouchDevice);
+    window.addEventListener('resize', checkTouchDevice);
 
-    return () => window.removeEventListener("resize", checkTouchDevice);
+    return () => window.removeEventListener('resize', checkTouchDevice);
   }, []);
 
   useEffect(() => {
@@ -57,14 +57,14 @@ export function CursorProvider({
       return;
     }
 
-    if (variant !== "input") {
-      document.body.classList.add("phazr-cursor-none");
+    if (variant !== 'input') {
+      document.body.classList.add('phazr-cursor-none');
     } else {
-      document.body.classList.remove("phazr-cursor-none");
+      document.body.classList.remove('phazr-cursor-none');
     }
 
     return () => {
-      document.body.classList.remove("phazr-cursor-none");
+      document.body.classList.remove('phazr-cursor-none');
     };
   }, [variant, isTouchDevice, enableOnTouch]);
 

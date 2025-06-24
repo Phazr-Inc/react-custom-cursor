@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { type ReactNode } from "react";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { type ReactNode } from 'react';
 
 interface PageHeaderProps {
   title: string;
@@ -11,13 +11,13 @@ interface PageHeaderProps {
 }
 
 function getBreadcrumbs(pathname: string) {
-  const parts = pathname.split("/").filter(Boolean);
+  const parts = pathname.split('/').filter(Boolean);
   return parts.map((part, index) => {
-    const href = `/${parts.slice(0, index + 1).join("/")}`;
+    const href = `/${parts.slice(0, index + 1).join('/')}`;
     const label = part
-      .split("-")
+      .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+      .join(' ');
     return { href, label };
   });
 }
@@ -32,7 +32,7 @@ export default function PageHeader({
 
   return (
     <div className="mb-8 border-b border-gray-200 dark:border-gray-800 pb-8">
-      {breadcrumbs.length > 0 && pathname !== "/" && (
+      {breadcrumbs.length > 0 && pathname !== '/' && (
         <div className="flex gap-2 text-sm text-gray-500 dark:text-gray-400 mb-2">
           <Link
             href="/"

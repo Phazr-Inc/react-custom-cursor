@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -28,14 +28,14 @@ export default function Home() {
         <div className="mb-8 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 text-blue-900 dark:text-blue-200 flex items-center gap-3">
           <span className="text-2xl">🤝</span>
           <span>
-            <b>Open Source:</b> Want to contribute? See our{" "}
+            <b>Open Source:</b> Want to contribute? See our{' '}
             <a
               href="https://github.com/phazr-inc/react-custom-cursor/blob/main/CONTRIBUTING.md"
               className="underline hover:text-blue-600"
             >
               contributing guide
-            </a>{" "}
-            or{" "}
+            </a>{' '}
+            or{' '}
             <a
               href="https://github.com/phazr-inc/react-custom-cursor"
               className="underline hover:text-blue-600"
@@ -93,8 +93,8 @@ export default function Home() {
             </li>
             <li>
               <span>
-                Wrap your app with{" "}
-                <code className="font-mono">CursorProvider</code> and add{" "}
+                Wrap your app with{' '}
+                <code className="font-mono">CursorProvider</code> and add{' '}
                 <code className="font-mono">&lt;Cursor /&gt;</code>:
               </span>
               <pre className="bg-gray-900 text-white rounded px-3 py-2 mt-1 font-mono text-sm whitespace-pre">{`
@@ -115,7 +115,7 @@ function App() {
         </section>
       </main>
       <footer className="w-full py-6 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#18181b]/80 backdrop-blur-md">
-        MIT © Phazr Inc &middot;{" "}
+        MIT © Phazr Inc &middot;{' '}
         <a
           href="https://github.com/phazr-inc/react-custom-cursor"
           className="underline hover:text-blue-600"

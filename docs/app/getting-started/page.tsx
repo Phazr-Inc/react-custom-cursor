@@ -1,4 +1,4 @@
-import PageHeader from "../../components/PageHeader";
+import PageHeader from '../../components/PageHeader';
 
 export default function GettingStarted() {
   return (
@@ -21,11 +21,11 @@ export default function GettingStarted() {
           <h2 className="text-xl font-semibold mb-4">Basic Usage</h2>
           <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <p className="mb-2">
-              Wrap your app with{" "}
+              Wrap your app with{' '}
               <code className="font-mono bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">
                 CursorProvider
-              </code>{" "}
-              and add{" "}
+              </code>{' '}
+              and add{' '}
               <code className="font-mono bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">
                 &lt;Cursor /&gt;
               </code>
@@ -50,7 +50,7 @@ function App() {
           <h2 className="text-xl font-semibold mb-4">Next.js Setup</h2>
           <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <p className="mb-2">
-              For Next.js App Router, add the provider and cursor in your{" "}
+              For Next.js App Router, add the provider and cursor in your{' '}
               <code className="font-mono bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">
                 layout.tsx
               </code>

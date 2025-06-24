@@ -1,4 +1,4 @@
-@import "tailwindcss/preflight";
+@import 'tailwindcss/preflight';
 @tailwind utilities;
 
 :root {
@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: "Inter", "Geist", "Geist Sans", "Segoe UI", "Arial", sans-serif;
+  font-family: 'Inter', 'Geist', 'Geist Sans', 'Segoe UI', 'Arial', sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -26,7 +26,7 @@ body {
 code,
 pre {
   font-family:
-    "Fira Mono", "Geist Mono", "Menlo", "Monaco", "Consolas", monospace;
+    'Fira Mono', 'Geist Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
 }
 
 pre {

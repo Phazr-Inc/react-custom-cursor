@@ -25,7 +25,7 @@ export default function Customization() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-2">Custom Variants</h2>
         <p>
-          Use <code className="font-mono">setCustomConfig</code> and{" "}
+          Use <code className="font-mono">setCustomConfig</code> and{' '}
           <code className="font-mono">setVariant('custom')</code> to create your
           own cursor styles and behaviors.
         </p>
@@ -33,13 +33,13 @@ export default function Customization() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Advanced Usage</h2>
         <p>
-          See the{" "}
+          See the{' '}
           <a
             href="/examples"
             className="underline text-blue-700 dark:text-blue-300"
           >
             Examples
-          </a>{" "}
+          </a>{' '}
           page for interactive demos and advanced patterns.
         </p>
       </section>

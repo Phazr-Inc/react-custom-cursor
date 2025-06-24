@@ -7,11 +7,11 @@ export default function Contributing() {
         <ol className="list-decimal list-inside space-y-2">
           <li>Fork the repository and create a new branch for your changes.</li>
           <li>
-            Install dependencies with{" "}
+            Install dependencies with{' '}
             <code className="font-mono">pnpm install</code>.
           </li>
           <li>
-            Run the docs site locally with{" "}
+            Run the docs site locally with{' '}
             <code className="font-mono">pnpm dev</code>.
           </li>
           <li>Make your changes and ensure the site builds and runs.</li>
@@ -30,7 +30,7 @@ export default function Contributing() {
       <section>
         <h2 className="text-xl font-semibold mb-2">Questions?</h2>
         <p>
-          Open an issue or start a discussion on{" "}
+          Open an issue or start a discussion on{' '}
           <a
             href="https://github.com/phazr-xyz/react-custom-cursor"
             className="underline text-blue-700 dark:text-blue-300"

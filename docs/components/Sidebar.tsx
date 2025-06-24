@@ -1,43 +1,43 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
   {
-    href: "/",
-    label: "Home",
-    description: "Get started with @phazr/react-custom-cursor",
+    href: '/',
+    label: 'Home',
+    description: 'Get started with @phazr/react-custom-cursor',
   },
   {
-    href: "/getting-started",
-    label: "Getting Started",
-    description: "Quick start guide and basic usage",
+    href: '/getting-started',
+    label: 'Getting Started',
+    description: 'Quick start guide and basic usage',
   },
   {
-    href: "/api",
-    label: "API Reference",
-    description: "Detailed API documentation",
+    href: '/api',
+    label: 'API Reference',
+    description: 'Detailed API documentation',
   },
   {
-    href: "/examples",
-    label: "Examples",
-    description: "Common usage examples and patterns",
+    href: '/examples',
+    label: 'Examples',
+    description: 'Common usage examples and patterns',
   },
   {
-    href: "/customization",
-    label: "Customization",
-    description: "Style and behavior customization",
+    href: '/customization',
+    label: 'Customization',
+    description: 'Style and behavior customization',
   },
   {
-    href: "/contributing",
-    label: "Contributing",
-    description: "How to contribute to the project",
+    href: '/contributing',
+    label: 'Contributing',
+    description: 'How to contribute to the project',
   },
   {
-    href: "/faq",
-    label: "FAQ",
-    description: "Common questions and answers",
+    href: '/faq',
+    label: 'FAQ',
+    description: 'Common questions and answers',
   },
 ];
 
@@ -63,16 +63,16 @@ export default function Sidebar() {
               href={item.href}
               className={`group relative px-3 py-2 rounded-lg transition-all duration-200 ease-out ${
                 isActive
-                  ? "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-200"
-                  : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200"
+                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-200'
+                  : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200'
               }`}
             >
               <div className="font-medium mb-0.5">{item.label}</div>
               <div
                 className={`text-xs transition-colors ${
                   isActive
-                    ? "text-blue-600 dark:text-blue-300"
-                    : "text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300"
+                    ? 'text-blue-600 dark:text-blue-300'
+                    : 'text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300'
                 }`}
               >
                 {item.description}

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useCursor } from "@phazr/react-custom-cursor";
-import Image from "next/image";
+import { useCursor } from '@phazr/react-custom-cursor';
+import Image from 'next/image';
 
 export default function Home() {
   const { setVariant } = useCursor();
@@ -18,7 +18,7 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
+            Get started by editing{' '}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
               app/page.tsx
             </code>
@@ -32,10 +32,10 @@ export default function Home() {
         <div
           className="flex gap-4 items-center flex-col sm:flex-row"
           onMouseEnter={() => {
-            setVariant("link");
+            setVariant('link');
           }}
           onMouseLeave={() => {
-            setVariant("default");
+            setVariant('default');
           }}
         >
           <a
@@ -66,10 +66,10 @@ export default function Home() {
       <footer
         className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"
         onMouseEnter={() => {
-          setVariant("sayHi");
+          setVariant('sayHi');
         }}
         onMouseLeave={() => {
-          setVariant("default");
+          setVariant('default');
         }}
       >
         <a

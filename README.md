@@ -58,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body>
         <CursorProvider>
           {children}
@@ -102,7 +102,7 @@ function InteractiveElements() {
   return (
     <div>
       <a
-        href='#'
+        href="#"
         onMouseEnter={() => setVariant('link')}
         onMouseLeave={() => setVariant('default')}
       >
@@ -117,10 +117,10 @@ function InteractiveElements() {
       </p>
 
       <input
-        type='text'
+        type="text"
         onFocus={() => setVariant('input')}
         onBlur={() => setVariant('default')}
-        placeholder='Input field'
+        placeholder="Input field"
       />
 
       <button
@@ -301,13 +301,13 @@ function Portfolio() {
   };
 
   return (
-    <div className='portfolio'>
+    <div className="portfolio">
       {projects.map((project) => (
         <div
           key={project.id}
           onMouseEnter={() => handleProjectHover(project.action)}
           onMouseLeave={() => setVariant('default')}
-          className='project-card'
+          className="project-card"
         >
           <h3>{project.title}</h3>
         </div>

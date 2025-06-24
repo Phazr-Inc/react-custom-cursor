@@ -1,38 +1,38 @@
-import "./globals.css";
-import type { ReactNode } from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import './globals.css';
+import type { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "@phazr/react-custom-cursor — React custom cursor with SSR support",
+  title: '@phazr/react-custom-cursor — React custom cursor with SSR support',
   description:
-    "A lightweight and highly customizable React component for creating unique and interactive cursor experiences with full SSR support.",
+    'A lightweight and highly customizable React component for creating unique and interactive cursor experiences with full SSR support.',
   keywords: [
-    "react",
-    "cursor",
-    "custom cursor",
-    "ssr",
-    "next.js",
-    "typescript",
+    'react',
+    'cursor',
+    'custom cursor',
+    'ssr',
+    'next.js',
+    'typescript',
   ],
   openGraph: {
-    title: "@phazr/react-custom-cursor",
+    title: '@phazr/react-custom-cursor',
     description:
-      "A lightweight and highly customizable React cursor component with SSR support",
-    url: "https://react-custom-cursor.phazr.xyz",
-    siteName: "@phazr/react-custom-cursor docs",
-    type: "website",
+      'A lightweight and highly customizable React cursor component with SSR support',
+    url: 'https://react-custom-cursor.phazr.xyz',
+    siteName: '@phazr/react-custom-cursor docs',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "@phazr/react-custom-cursor",
+    card: 'summary_large_image',
+    title: '@phazr/react-custom-cursor',
     description:
-      "A lightweight and highly customizable React cursor component with SSR support",
+      'A lightweight and highly customizable React cursor component with SSR support',
   },
 };
 
