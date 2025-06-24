@@ -46,13 +46,13 @@
   ],
   "author": "Phazr Inc",
   "license": "MIT",
-  "homepage": "https://github.com/phazr/react-custom-cursor#readme",
+  "homepage": "https://github.com/Phazr-Inc/react-custom-cursor#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phazr/react-custom-cursor.git"
+    "url": "git+https://github.com/Phazr-Inc/react-custom-cursor"
   },
   "bugs": {
-    "url": "https://github.com/phazr/react-custom-cursor/issues"
+    "url": "https://github.com/Phazr-Inc/react-custom-cursor/issues"
   },
   "peerDependencies": {
     "motion": "^10.16.4",
