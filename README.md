@@ -1,48 +1,63 @@
 # @phazr/react-custom-cursor
 
-A lightweight and customizable React component that replaces the default cursor with a stylish, animated cursor.
+A lightweight and highly customizable React component for creating unique and interactive cursor experiences with full SSR support.
 
-[![npm](https://img.shields.io/npm/v/@phazr/react-custom-cursor)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@phazr/react-custom-cursor)](https://bundlephobia.com/package/@phazr/react-custom-cursor)
-[![npm downloads](https://img.shields.io/npm/dt/@phazr/react-custom-cursor)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Open Issues](https://img.shields.io/github/issues-raw/phazrinc/react-custom-cursor)](https://github.com/phazrinc/react-custom-cursor/issues)
+## Features
+
+- ✅ **SSR Compatible** - Works seamlessly with Next.js, Remix, Gatsby, and other SSR frameworks
+- ✅ **TypeScript Support** - Full type safety out of the box
+- ✅ **Customizable** - Define your own cursor variants and styles
+- ✅ **Smooth Animations** - Powered by Framer Motion
+- ✅ **Zero Config** - Works out of the box with sensible defaults
+- ✅ **Accessibility** - Automatically hides on touch devices and respects user preferences
+- ✅ **Lightweight** - Minimal bundle size impact
 
 ## Installation
 
-You can install the package using npm, pnpm, or yarn:
-
 ```bash
-npm install @phazr/react-custom-cursor
+npm install @phazr/react-custom-cursor motion
+# or
+yarn add @phazr/react-custom-cursor motion
+# or
+pnpm add @phazr/react-custom-cursor motion
 ```
 
-```bash
-pnpm add @phazr/react-custom-cursor
-```
+## Quick Start
 
-```bash
-yarn add @phazr/react-custom-cursor
-```
+### Basic Usage
 
-## Usage
-
-To use the custom cursor in your application, you need to wrap your root component with the `CursorProvider` and include the `Cursor` component. **You no longer need to import the CSS file separately; styles are included automatically.**
-
-**Note:** All components must be imported as named imports. Default imports are not supported.
-
-Here's an example of how to set it up in a Next.js `layout.tsx` file:
-
-```jsx
-// app/layout.tsx
-import { CursorProvider, Cursor } from "@phazr/react-custom-cursor";
-
-export default function RootLayout({ children }) {
+```tsx
+import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+// Make sure import css also unless its wont work as expected
+import '@phazr/react-custom-cursor/cursor.css';
+function App() {
   return (
-    <html lang="en">
+    <CursorProvider>
+      <div>Your app content</div>
+      <Cursor />
+    </CursorProvider>
+  );
+}
+```
+
+### Next.js App Router Example
+
+```tsx
+// app/layout.tsx
+import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+// Make sure import css also unless its wont work as expected
+import '@phazr/react-custom-cursor/cursor.css';
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang='en'>
       <body>
         <CursorProvider>
+          {children}
           <Cursor />
-          {children}
         </CursorProvider>
       </body>
     </html>
@@ -50,232 +65,319 @@ export default function RootLayout({ children }) {
 }
 ```
 
-## API
+### Next.js Pages Router Example
 
-> **Note:** All exports from this package are named. Please use named imports as shown in the examples.
+```tsx
+// pages/_app.tsx
+import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+// Make sure import css also unless its wont work as expected
+import '@phazr/react-custom-cursor/cursor.css';
+import type { AppProps } from 'next/app';
 
-### `CursorProvider`
-
-The `CursorProvider` is a component that wraps your application to provide the context for the custom cursor. It should be placed at the root of your component tree.
-
-### `Cursor`
-
-The `Cursor` component renders the custom cursor. It accepts the following props:
-
-- `variants`: An object to customize the styles of the default cursor variants (`default`, `link`, `text`, `input`).
-- `customVariant`: An object to define a new, custom variant with its own styles and text content.
-
-Here's an example of how to customize the cursor:
-
-```jsx
-// app/layout.tsx
-import {
-  CursorProvider,
-  Cursor,
-  CursorVariants,
-  CustomVariant,
-} from "@phazr/react-custom-cursor";
-
-const customVariants: CursorVariants = {
-  default: {
-    backgroundColor: "#ff0000",
-  },
-  link: {
-    backgroundColor: "#0000ff",
-    mixBlendMode: "screen",
-  },
-};
-
-const customVariant: CustomVariant = {
-  name: "sayHi",
-  text: (
-    <>
-      <span>Say</span>
-      <span>Hi</span>
-    </>
-  ),
-  height: 90,
-  width: 90,
-  backgroundColor: "#fff",
-  mixBlendMode: "difference",
-};
-
-export default function RootLayout({ children }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    <html lang="en">
-      <body>
-        <CursorProvider>
-          <Cursor variants={customVariants} customVariant={customVariant} />
-          {children}
-        </CursorProvider>
-      </body>
-    </html>
+    <CursorProvider>
+      <Component {...pageProps} />
+      <Cursor />
+    </CursorProvider>
   );
 }
 ```
 
-### `useCursor()`
+## Usage Examples
 
-The `useCursor` hook allows you to change the cursor's appearance from any component within the `CursorProvider`.
+### Using Built-in Cursor Variants
 
-```jsx
-import { useCursor } from "@phazr/react-custom-cursor";
+```tsx
+import { useCursor } from '@phazr/react-custom-cursor';
 
-function MyComponent() {
-  const { setVariant, setText } = useCursor();
+function InteractiveElements() {
+  const { setVariant } = useCursor();
 
   return (
-    <div
-      onMouseEnter={() => setVariant("link")}
-      onMouseLeave={() => setVariant("default")}
-    >
-      Hover over me!
+    <div>
+      <a
+        href='#'
+        onMouseEnter={() => setVariant('link')}
+        onMouseLeave={() => setVariant('default')}
+      >
+        Hover me for link cursor!
+      </a>
+
+      <p
+        onMouseEnter={() => setVariant('text')}
+        onMouseLeave={() => setVariant('default')}
+      >
+        Hover me for text cursor!
+      </p>
+
+      <input
+        type='text'
+        onFocus={() => setVariant('input')}
+        onBlur={() => setVariant('default')}
+        placeholder='Input field'
+      />
+
+      <button
+        onMouseEnter={() => setVariant('sayHi')}
+        onMouseLeave={() => setVariant('default')}
+      >
+        Say Hi Button
+      </button>
     </div>
   );
 }
 ```
 
-#### `setVariant(variant: string)`
+### Custom Cursor Configuration
 
-A function to change the visual style of the cursor. The available variants are:
+```tsx
+import { useCursor } from '@phazr/react-custom-cursor';
 
-- `default`: The standard cursor style.
-- `link`: A style for hoverable elements, like links or buttons.
+function CustomCursorExample() {
+  const { setVariant, setCustomConfig } = useCursor();
 
-#### `setText(text: string | null)`
+  const handleCustomCursor = () => {
+    setCustomConfig({
+      size: 60,
+      backgroundColor: '#ff0000',
+      mixBlendMode: 'normal',
+      text: 'Click',
+      textColor: '#ffffff',
+      fontSize: '14px',
+      fontFamily: 'Arial, sans-serif',
+    });
+    setVariant('custom');
+  };
 
-A function to display text within the cursor. For example, you can use this to show "View" or "Drag" inside the cursor when hovering over certain elements. Set to `null` or an empty string to remove the text.
-
----
-
-## FAQ
-
-### Why am I getting `Module not found: Can't resolve '@phazr/react-custom-cursor/cursor.css'`?
-
-You no longer need to import the CSS file separately. The styles are included automatically when you import from `@phazr/react-custom-cursor`.
-
-### Why do I get `Module has no exported member 'Cursor'`?
-
-Make sure you are using **named imports**:
-
-```js
-import { Cursor } from "@phazr/react-custom-cursor";
+  return (
+    <div
+      onMouseEnter={handleCustomCursor}
+      onMouseLeave={() => setVariant('default')}
+      style={{ padding: '20px', backgroundColor: '#f0f0f0' }}
+    >
+      Hover for custom cursor with text!
+    </div>
+  );
+}
 ```
 
-Default imports are not supported.
+### Custom Spring Configuration
 
-### Is this package compatible with React 18, 19 and Next.js 14, 15?
+```tsx
+import { Cursor } from '@phazr/react-custom-cursor';
+// Make sure import css also unless its wont work as expected
+import '@phazr/react-custom-cursor/cursor.css';
+function App() {
+  return (
+    <CursorProvider>
+      <div>Your app content</div>
+      <Cursor
+        springConfig={{
+          damping: 20,
+          stiffness: 300,
+        }}
+      />
+    </CursorProvider>
+  );
+}
+```
 
-Yes! The package is tested and works with React 18, 19 and Next.js 14, 15.
+### Touch Device Configuration
 
-### Can I use this in a TypeScript project?
+```tsx
+import { CursorProvider } from '@phazr/react-custom-cursor';
+// Make sure import css also unless its wont work as expected
+import '@phazr/react-custom-cursor/cursor.css';
+function App() {
+  return (
+    <CursorProvider enableOnTouch={true}>
+      <div>Your app content</div>
+      <Cursor />
+    </CursorProvider>
+  );
+}
+```
 
-Yes, full TypeScript support is provided.
+## API Reference
 
----
+### CursorProvider
+
+The main provider component that should wrap your application.
+
+```tsx
+interface CursorProviderProps {
+  children: ReactNode;
+  className?: string;
+  enableOnTouch?: boolean; // Enable cursor on touch devices (default: false)
+}
+```
+
+### Cursor
+
+The cursor component that renders the actual cursor.
+
+```tsx
+interface CursorProps {
+  className?: string;
+  springConfig?: {
+    damping?: number; // Default: 28
+    stiffness?: number; // Default: 500
+  };
+}
+```
+
+### useCursor
+
+Hook to control cursor variants and configuration.
+
+```tsx
+interface CursorContextType {
+  variant: CursorVariant;
+  setVariant: (variant: CursorVariant) => void;
+  customConfig?: CustomCursorConfig;
+  setCustomConfig?: (config: CustomCursorConfig) => void;
+}
+
+const { variant, setVariant, customConfig, setCustomConfig } = useCursor();
+```
+
+### Types
+
+```tsx
+type CursorVariant = 'default' | 'link' | 'text' | 'input' | 'sayHi' | 'custom';
+
+interface CustomCursorConfig {
+  size?: number;
+  backgroundColor?: string;
+  mixBlendMode?: string;
+  text?: string;
+  textColor?: string;
+  fontSize?: string;
+  fontFamily?: string;
+}
+```
+
+## Built-in Variants
+
+- `default` - Standard cursor (16x16px, white, difference blend mode)
+- `link` - Larger cursor for links (64x64px, white, difference blend mode)
+- `text` - Smaller cursor for text (8x8px, white, difference blend mode)
+- `input` - Hidden cursor for inputs (invisible)
+- `sayHi` - Special cursor with "Say Hi" text (90x90px)
+- `custom` - Fully customizable cursor using `setCustomConfig()`
+
+## Advanced Usage
+
+### Creating Interactive Hover Effects
+
+```tsx
+import { useCursor } from '@phazr/react-custom-cursor';
+
+function Portfolio() {
+  const { setVariant, setCustomConfig } = useCursor();
+
+  const projects = [
+    { id: 1, title: 'Project A', action: 'View' },
+    { id: 2, title: 'Project B', action: 'Explore' },
+    { id: 3, title: 'Project C', action: 'Discover' },
+  ];
+
+  const handleProjectHover = (action: string) => {
+    setCustomConfig({
+      size: 80,
+      backgroundColor: '#000000',
+      text: action,
+      textColor: '#ffffff',
+      fontSize: '16px',
+      mixBlendMode: 'normal',
+    });
+    setVariant('custom');
+  };
+
+  return (
+    <div className='portfolio'>
+      {projects.map((project) => (
+        <div
+          key={project.id}
+          onMouseEnter={() => handleProjectHover(project.action)}
+          onMouseLeave={() => setVariant('default')}
+          className='project-card'
+        >
+          <h3>{project.title}</h3>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+## CSS Customization
+
+The package includes default styles that you can override:
+
+```css
+/* Override cursor container styles */
+.phazr-cursor-container {
+  /* Your custom styles */
+}
+
+/* Override cursor text styles */
+.phazr-cursor-text {
+  /* Your custom styles */
+}
+
+/* Override "Say Hi" variant styles */
+.phazr-cursor-sayhi {
+  /* Your custom styles */
+}
+```
 
 ## Troubleshooting
 
-- **Cursor not appearing:**
+### Cursor Not Appearing
 
-  - Make sure you have wrapped your app with `CursorProvider` and included the `Cursor` component.
-  - Ensure you are not overriding the cursor styles elsewhere in your app.
+1. Make sure you've wrapped your app with `CursorProvider`
+2. Ensure you've included the `<Cursor />` component
+3. Check that you're not on a touch device (cursor is hidden by default)
 
-- **TypeScript errors about missing exports:**
+### Performance Issues
 
-  - Use only named imports for all components.
+If you experience performance issues:
 
-- **Styles not applied:**
+1. Adjust the spring configuration to reduce stiffness
+2. Limit the frequency of variant changes
+3. Use `React.memo` for components that frequently change cursor variants
 
-  - You do not need to import any CSS manually. If you are using a custom build setup, ensure it supports CSS imports in JS/TS files.
+### SSR/Hydration Issues
 
-- **Still having issues?**
-  - Check the [open issues](https://github.com/phazrinc/react-custom-cursor/issues) or open a new one for help.
+The package automatically handles SSR by:
+
+- Detecting touch devices server-side and client-side
+- Hiding cursor on touch devices by default
+- Using proper `useEffect` hooks for client-side only code
+
+### Touch Devices
+
+By default, the cursor is hidden on touch devices. To enable it:
+
+```tsx
+<CursorProvider enableOnTouch={true}>
+  <YourApp />
+</CursorProvider>
+```
+
+## Browser Support
+
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
 
 ## Contributing
 
-Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-For more information, see our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## More Advanced Examples
-
-### Animated Cursor Transitions with motion/react
-
-You can use motion/react's `animate` prop or variants for more complex cursor animations:
-
-```jsx
-import { CursorProvider, Cursor } from "@phazr/react-custom-cursor";
-import { motion } from "motion/react";
-
-const animatedVariants = {
-  default: { scale: 1, backgroundColor: "#fff" },
-  link: { scale: 2, backgroundColor: "#0af" },
-  special: { scale: 1.5, backgroundColor: "#fa0" },
-};
-
-function AnimatedCursor() {
-  return <Cursor variants={animatedVariants} />;
-}
-
-export default function App({ children }) {
-  return (
-    <CursorProvider>
-      <AnimatedCursor />
-      {children}
-    </CursorProvider>
-  );
-}
-```
-
-### Theming Support (Dark/Light Mode)
-
-You can dynamically change cursor styles based on your app's theme:
-
-```jsx
-import { CursorProvider, Cursor, CursorVariants } from "@phazr/react-custom-cursor";
-import { useTheme } from "next-themes";
-
-function ThemedCursor() {
-  const { theme } = useTheme();
-  const variants: CursorVariants = theme === "dark"
-    ? { default: { backgroundColor: "#fff" } }
-    : { default: { backgroundColor: "#222" } };
-  return <Cursor variants={variants} />;
-}
-
-export default function App({ children }) {
-  return (
-    <CursorProvider>
-      <ThemedCursor />
-      {children}
-    </CursorProvider>
-  );
-}
-```
-
-### Integration with Next.js Dynamic Routes
-
-You can use the cursor in dynamic layouts or pages in Next.js:
-
-```jsx
-// app/layout.tsx or app/[...slug]/layout.tsx
-import { CursorProvider, Cursor } from "@phazr/react-custom-cursor";
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        <CursorProvider>
-          <Cursor />
-          {children}
-        </CursorProvider>
-      </body>
-    </html>
-  );
-}
-```
+MIT © Phazr Inc

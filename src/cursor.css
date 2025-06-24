@@ -1,6 +1,44 @@
-* {
+.phazr-cursor-none {
   cursor: none !important;
 }
-body.cursor-none {
+
+.phazr-cursor-none * {
   cursor: none !important;
+}
+
+.phazr-cursor-container {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phazr-cursor-text {
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phazr-cursor-sayhi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+}
+
+/* Responsive behavior */
+@media (hover: none) and (pointer: coarse) {
+  .phazr-cursor-container {
+    display: none !important;
+  }
+  
+  .phazr-cursor-none,
+  .phazr-cursor-none * {
+    cursor: auto !important;
+  }
 }

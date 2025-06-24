@@ -1,5 +1,13 @@
-import "./cursor.css";
-export { default as Cursor } from "./Cursor";
-export { CursorProvider } from "./CursorProvider";
-export { CursorContext } from "./CursorContext";
-export { useCursor } from "./useCursor";
+'use client';
+export { CursorProvider, useCursor } from './client';
+export { Cursor } from './client';
+export type {
+  CursorVariant,
+  CursorContextType,
+  CustomCursorConfig,
+  CursorProviderProps,
+  CursorProps,
+} from './types';
+
+// Import CSS for side effects
+import './cursor.css';

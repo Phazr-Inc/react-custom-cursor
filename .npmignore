@@ -1,0 +1,27 @@
+# Exclude playground and test directories
+playground/
+test/
+
+# Exclude config and build scripts
+*.config.js
+*.config.ts
+*.mjs
+*.cjs
+
+# Exclude source files (only dist should be published)
+src/
+
+# Exclude lock files and workspace files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+pnpm-workspace.yaml
+
+# Exclude dotfiles (except .npmignore and .gitignore)
+.*
+!.npmignore
+!.gitignore
+
+# Exclude miscellaneous
+.DS_Store
+node_modules/ 

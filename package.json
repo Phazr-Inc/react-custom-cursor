@@ -8,31 +8,70 @@
   "types": "dist/index.d.ts",
   "style": "dist/cursor.css",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css",
+    "./dist/cursor.css"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts && copyfiles -u 1 src/cursor.css dist && copyfiles -u 1 src/cursor.css .",
+    "clean": "node -e \"const fs=require('fs');const path=require('path');if(fs.existsSync('dist'))fs.rmSync('dist',{recursive:true})\"",
+    "build": "pnpm clean && rollup -c",
+    "dev:rollup": "rollup -c -w",
+    "dev": "pnpm --filter next15 dev",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build && pnpm run type-check",
+    "release": "pnpm version patch && pnpm publish",
+    "test:build": "pnpm build && node -e \"console.log('Build successful')\"",
+    "size": "npx bundlephobia @phazr/react-custom-cursor",
+    "link:local": "pnpm link --global",
+    "unlink:local": "pnpm unlink --global"
   },
   "keywords": [
     "react",
     "cursor",
     "custom-cursor",
-    "react-custom-cursor"
+    "react-custom-cursor",
+    "framer-motion",
+    "motion",
+    "animation",
+    "ssr",
+    "nextjs",
+    "typescript"
   ],
   "author": "Phazr Inc",
   "license": "MIT",
+  "homepage": "https://github.com/phazr/react-custom-cursor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phazr/react-custom-cursor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phazr/react-custom-cursor/issues"
+  },
   "peerDependencies": {
-    "motion": ">=10",
+    "motion": ">=10.0.0",
     "react": ">=18.0.0 <20.0.0",
     "react-dom": ">=18.0.0 <20.0.0"
   },
+  "peerDependenciesMeta": {
+    "motion": {
+      "optional": false
+    }
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^19.1.8",
-    "@typescript-eslint/eslint-plugin": "^8.34.1",
-    "@typescript-eslint/parser": "^8.34.1",
+    "@types/react-dom": "^18.3.7",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
     "copyfiles": "^2.4.1",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
@@ -43,10 +82,13 @@
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "prettier": "^3.5.3",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.34.1"
+    "prettier": "^3.6.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.44.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -57,7 +99,15 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./cursor.css": "./dist/cursor.css"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

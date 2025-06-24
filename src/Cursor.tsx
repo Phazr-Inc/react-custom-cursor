@@ -1,124 +1,102 @@
-"use client";
+'use client';
 
-import { useCursor } from "./useCursor";
-import { motion, useMotionValue, useSpring } from "motion/react";
-import * as React from "react";
+import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'motion/react';
+import { useCursor } from './CursorProvider';
 
-export type CursorStyle = {
-  height: number;
-  width: number;
-  backgroundColor: string;
-  mixBlendMode?:
-    | "normal"
-    | "multiply"
-    | "screen"
-    | "overlay"
-    | "darken"
-    | "lighten"
-    | "color-dodge"
-    | "color-burn"
-    | "hard-light"
-    | "soft-light"
-    | "difference"
-    | "exclusion"
-    | "hue"
-    | "saturation"
-    | "color"
-    | "luminosity";
-  opacity?: number;
-};
-
-export type CursorVariants = {
-  default: Partial<CursorStyle>;
-  link: Partial<CursorStyle>;
-  text: Partial<CursorStyle>;
-  input: Partial<CursorStyle>;
-  [key: string]: Partial<CursorStyle>;
-};
-
-export interface CustomVariant extends CursorStyle {
-  name: string;
-  text: React.ReactNode;
-}
-
-export interface CursorProps {
-  variants?: CursorVariants;
-  customVariant?: CustomVariant;
+interface CursorProps {
+  className?: string;
+  springConfig?: {
+    damping?: number;
+    stiffness?: number;
+  };
 }
 
 export default function Cursor({
-  variants: customVariants,
-  customVariant,
+  className = '',
+  springConfig = { damping: 28, stiffness: 500 },
 }: CursorProps) {
-  const { variant } = useCursor();
+  const { variant, customConfig } = useCursor();
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 28, stiffness: 500 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return;
+
     const mouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
 
-    window.addEventListener("mousemove", mouseMove);
+    window.addEventListener('mousemove', mouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", mouseMove);
+      window.removeEventListener('mousemove', mouseMove);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isTouchDevice]);
 
-  const defaultCursorVariants: CursorVariants = {
+  if (isTouchDevice) {
+    return null;
+  }
+
+  const cursorVariants = {
     default: {
       height: 16,
       width: 16,
-      backgroundColor: "#fff",
-      mixBlendMode: "difference",
+      backgroundColor: '#fff',
+      mixBlendMode: 'difference' as const,
     },
     link: {
       height: 64,
       width: 64,
-      backgroundColor: "#fff",
-      mixBlendMode: "difference",
+      backgroundColor: '#fff',
+      mixBlendMode: 'difference' as const,
     },
     text: {
       height: 8,
       width: 8,
-      backgroundColor: "#fff",
-      mixBlendMode: "difference",
+      backgroundColor: '#fff',
+      mixBlendMode: 'difference' as const,
     },
     input: {
       height: 0,
       width: 0,
       opacity: 0,
     },
+    sayHi: {
+      height: 90,
+      width: 90,
+      backgroundColor: '#fff',
+      mixBlendMode: 'difference' as const,
+    },
+    custom: {
+      height: customConfig?.size || 32,
+      width: customConfig?.size || 32,
+      backgroundColor: customConfig?.backgroundColor || '#fff',
+      mixBlendMode: customConfig?.mixBlendMode || 'difference',
+    },
   };
 
-  const cursorVariants = { ...defaultCursorVariants, ...customVariants };
-
-  if (customVariant) {
-    const { name, ...style } = customVariant;
-    cursorVariants[name] = style;
-  }
-
-  const textVariants: {
-    [key: string]: { opacity: number; transition: { [key: string]: number } };
-  } = {
+  const textVariants = {
     default: { opacity: 0, transition: { duration: 0.1 } },
     link: { opacity: 0, transition: { duration: 0.1 } },
     text: { opacity: 0, transition: { duration: 0.1 } },
     input: { opacity: 0, transition: { duration: 0.1 } },
+    sayHi: { opacity: 1, transition: { delay: 0.1 } },
+    custom: {
+      opacity: customConfig?.text ? 1 : 0,
+      transition: { delay: customConfig?.text ? 0.1 : 0 },
+    },
   };
-
-  if (customVariant) {
-    textVariants[customVariant.name] = {
-      opacity: 1,
-      transition: { delay: 0.1 },
-    };
-  }
 
   return (
     <motion.div
@@ -127,18 +105,31 @@ export default function Cursor({
       style={{
         left: cursorXSpring,
         top: cursorYSpring,
-        x: "-50%",
-        y: "-50%",
+        x: '-50%',
+        y: '-50%',
       }}
-      className="flex-center pointer-events-none fixed z-[9999] rounded-full"
+      className={`phazr-cursor-container ${className}`}
     >
-      <motion.p
+      <motion.div
         variants={textVariants}
         animate={variant}
-        className="flex flex-col gap-2 font-amsterdam text-base font-bold text-black"
+        className='phazr-cursor-text'
+        style={{
+          color: customConfig?.textColor || '#000',
+          fontSize: customConfig?.fontSize || '16px',
+          fontFamily: customConfig?.fontFamily || 'inherit',
+        }}
       >
-        {customVariant?.text}
-      </motion.p>
+        {variant === 'sayHi' && (
+          <div className='phazr-cursor-sayhi'>
+            <span>Say</span>
+            <span>Hi</span>
+          </div>
+        )}
+        {variant === 'custom' && customConfig?.text && (
+          <span>{customConfig.text}</span>
+        )}
+      </motion.div>
     </motion.div>
   );
 }
