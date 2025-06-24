@@ -3,7 +3,7 @@
 /.pnp
 .pnp.js
 .pnp.cjs
-
+stats.html
 # Build artifacts
 /dist
 
