@@ -1,0 +1,49 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #6366f1;
+  --color-bg: #fff;
+  --color-bg-dark: #18181b;
+  --color-border: #e5e7eb;
+  --color-border-dark: #23272f;
+  --color-text: #18181b;
+  --color-text-dark: #f4f4f5;
+}
+
+body {
+  font-family: "Inter", "Geist", "Geist Sans", "Segoe UI", "Arial", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.dark body {
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+code,
+pre {
+  font-family:
+    "Fira Mono", "Geist Mono", "Menlo", "Monaco", "Consolas", monospace;
+}
+
+pre {
+  background: #18181b;
+  color: #f4f4f5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Sidebar styles */
+.sidebar {
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+}
+
+.dark .sidebar {
+  background: var(--color-bg-dark);
+  border-right: 1px solid var(--color-border-dark);
+}

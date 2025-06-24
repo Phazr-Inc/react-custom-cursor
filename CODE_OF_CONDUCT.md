@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-support@phazr.io or by opening an issue on the GitHub repository.
+support@phazr.io or by opening an issue on the [GitHub repository](https://github.com/Phazr-Inc/react-custom-cursor/issues).
 
 All complaints will be reviewed and investigated promptly and fairly.
 

@@ -1,6 +1,11 @@
 # @phazr/react-custom-cursor
 
+[![npm version](https://img.shields.io/npm/v/@phazr/react-custom-cursor.svg)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A lightweight and highly customizable React component for creating unique and interactive cursor experiences with full SSR support.
+
+[GitHub Repo](https://github.com/Phazr-Inc/react-custom-cursor)
 
 ## Features
 
@@ -376,8 +381,12 @@ By default, the cursor is hidden on touch devices. To enable it:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. See [`CONTRIBUTORS.md`](CONTRIBUTORS.md) for a list of contributors.
 
 ## License
 
 MIT © Phazr Inc
+
+---
+
+For more information, visit the [GitHub repository](https://github.com/Phazr-Inc/react-custom-cursor).

@@ -36,7 +36,7 @@
   .phazr-cursor-container {
     display: none !important;
   }
-  
+
   .phazr-cursor-none,
   .phazr-cursor-none * {
     cursor: auto !important;

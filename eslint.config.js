@@ -1,21 +1,21 @@
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import hooksPlugin from 'eslint-plugin-react-hooks';
-import refreshPlugin from 'eslint-plugin-react-refresh';
-import prettierConfig from 'eslint-config-prettier';
-import prettierPlugin from 'eslint-plugin-prettier';
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+import hooksPlugin from "eslint-plugin-react-hooks";
+import refreshPlugin from "eslint-plugin-react-refresh";
+import prettierConfig from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 
 export default tseslint.config(
   {
-    ignores: ['dist/', 'node_modules/', 'dist/**/*'],
+    ignores: ["dist/", "node_modules/", "dist/**/*"],
   },
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
       react: pluginReact,
-      'react-hooks': hooksPlugin,
-      'react-refresh': refreshPlugin,
+      "react-hooks": hooksPlugin,
+      "react-refresh": refreshPlugin,
       prettier: prettierPlugin,
     },
     languageOptions: {
@@ -30,21 +30,21 @@ export default tseslint.config(
     rules: {
       ...pluginReact.configs.recommended.rules,
       ...hooksPlugin.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react-refresh/only-export-components": [
+        "warn",
         { allowConstantExport: true },
       ],
-      'prettier/prettier': 'warn',
-      'single-quote': 'on',
+      "prettier/prettier": "warn",
+      "single-quote": "on",
     },
     settings: {
       react: {
-        version: 'detect',
+        version: "detect",
       },
     },
   },
   ...tseslint.configs.recommended,
-  prettierConfig
+  prettierConfig,
 );

@@ -1,12 +1,12 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 export type CursorVariant =
-  | 'default'
-  | 'link'
-  | 'text'
-  | 'input'
-  | 'sayHi'
-  | 'custom';
+  | "default"
+  | "link"
+  | "text"
+  | "input"
+  | "sayHi"
+  | "custom";
 
 export interface CursorContextType {
   variant: CursorVariant;

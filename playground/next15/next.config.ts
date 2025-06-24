@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  transpilePackages: ['@phazr/react-custom-cursor'],
+  transpilePackages: ["@phazr/react-custom-cursor"],
 
   // For local development with symlinks
   webpack: (config, { isServer }) => {

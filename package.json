@@ -28,7 +28,7 @@
     "prepublishOnly": "pnpm run build && pnpm run type-check",
     "release": "pnpm version patch && pnpm publish",
     "test:build": "pnpm build && node -e \"console.log('Build successful')\"",
-    "size": "npx bundlephobia @phazr/react-custom-cursor",
+    "analyze": "pnpm build",
     "link:local": "pnpm link --global",
     "unlink:local": "pnpm unlink --global"
   },
@@ -55,7 +55,7 @@
     "url": "https://github.com/phazr/react-custom-cursor/issues"
   },
   "peerDependencies": {
-    "motion": ">=10.0.0",
+    "motion": "^10.16.4",
     "react": ">=18.0.0 <20.0.0",
     "react-dom": ">=18.0.0 <20.0.0"
   },
@@ -87,6 +87,7 @@
     "rollup": "^4.44.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-visualizer": "^6.0.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.0"
   },

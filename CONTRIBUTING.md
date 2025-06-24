@@ -22,7 +22,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 
 ### Reporting Bugs
 
-Before creating bug reports, please check the [existing issues](https://github.com/your-org/react-custom-cursor/issues) to avoid duplicates.
+Before creating bug reports, please check the [existing issues](https://github.com/Phazr-Inc/react-custom-cursor/issues) to avoid duplicates.
 
 When filing a bug report, please include:
 
@@ -62,22 +62,26 @@ We actively welcome your pull requests:
 ### Getting Started
 
 1. **Fork and clone the repository:**
+
    ```bash
    git clone https://github.com/your-username/react-custom-cursor.git
    cd react-custom-cursor
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pnpm install
    ```
 
 3. **Start development:**
+
    ```bash
    pnpm dev
    ```
 
 4. **Run tests:**
+
    ```bash
    pnpm test
    ```
@@ -93,15 +97,13 @@ We actively welcome your pull requests:
 src/
 ├── Cursor.tsx          # Main cursor component
 ├── CursorProvider.tsx  # Context provider
-├── types.ts           # TypeScript definitions
-├── cursor.css         # Component styles
-└── index.ts           #
-Fonts
-└── armsadam.ttf       #
- Main export file
+├── types.ts            # TypeScript definitions
+├── cursor.css          # Component styles
+├── fonts/              # Font files (e.g., armsadam.ttf)
+└── index.ts            # Main export file
 
 playground/            # Development playground (if exists)
-dist/                 # Built files
+dist/                  # Built files
 ```
 
 ## Development Workflow
@@ -109,6 +111,7 @@ dist/                 # Built files
 ### Branch Naming
 
 Use descriptive branch names:
+
 - `feature/add-custom-variants`
 - `fix/cursor-position-bug`
 - `docs/update-readme`
@@ -117,6 +120,7 @@ Use descriptive branch names:
 ### Making Changes
 
 1. **Create a new branch:**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -124,6 +128,7 @@ Use descriptive branch names:
 2. **Make your changes** following our coding standards
 
 3. **Test your changes:**
+
    ```bash
    pnpm test
    pnpm build
@@ -242,26 +247,32 @@ refactor(types): improve TypeScript interfaces
 
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Testing
+
 - [ ] Tests added/updated
 - [ ] All tests pass
 - [ ] Manual testing completed
 
 ## Screenshots/GIFs
+
 (If applicable)
 
 ## Breaking Changes
+
 (If any)
 
 ## Additional Notes
+
 (If any)
 ```
 
@@ -302,14 +313,15 @@ pnpm clean
 
 ## Getting Help
 
-- Check existing [issues](https://github.com/your-org/react-custom-cursor/issues)
-- Join our [discussions](https://github.com/your-org/react-custom-cursor/discussions)
+- Check existing [issues](https://github.com/Phazr-Inc/react-custom-cursor/issues)
+- Join our [discussions](https://github.com/Phazr-Inc/react-custom-cursor/discussions)
 - Reach out on [Twitter](https://twitter.com/phazr_io)
 
 ## Recognition
 
 Contributors will be recognized in:
-- `CONTRIBUTORS.md` file
+
+- [`CONTRIBUTORS.md`](CONTRIBUTORS.md) file
 - Release notes
 - Package credits
 
