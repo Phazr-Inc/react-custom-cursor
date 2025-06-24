@@ -1,6 +1,6 @@
 {
-  "name": "@phazr/react-custom-cursor",
-  "version": "0.1.7",
+  "name": "@phazr/custom-cursor",
+  "version": "0.1.1",
   "type": "module",
   "description": "A lightweight and highly customizable React component for creating unique and interactive cursor experiences.",
   "main": "dist/index.js",
@@ -55,7 +55,7 @@
     "url": "https://github.com/Phazr-Inc/react-custom-cursor/issues"
   },
   "peerDependencies": {
-    "motion": "^10.16.4",
+    "motion": "^12.0.0",
     "react": ">=18.0.0 <20.0.0",
     "react-dom": ">=18.0.0 <20.0.0"
   },

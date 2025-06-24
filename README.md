@@ -1,6 +1,6 @@
-# @phazr/react-custom-cursor
+# @phazr/custom-cursor
 
-[![npm version](https://img.shields.io/npm/v/@phazr/react-custom-cursor.svg)](https://www.npmjs.com/package/@phazr/react-custom-cursor)
+[![npm version](https://img.shields.io/npm/v/@phazr/custom-cursor.svg)](https://www.npmjs.com/package/@phazr/custom-cursor)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A lightweight and highly customizable React component for creating unique and interactive cursor experiences with full SSR support.
@@ -20,11 +20,11 @@ A lightweight and highly customizable React component for creating unique and in
 ## Installation
 
 ```bash
-npm install @phazr/react-custom-cursor motion
+npm install @phazr/custom-cursor motion
 # or
-yarn add @phazr/react-custom-cursor motion
+yarn add @phazr/custom-cursor motion
 # or
-pnpm add @phazr/react-custom-cursor motion
+pnpm add @phazr/custom-cursor motion
 ```
 
 ## Quick Start
@@ -32,9 +32,9 @@ pnpm add @phazr/react-custom-cursor motion
 ### Basic Usage
 
 ```tsx
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
 // Make sure import css also unless its wont work as expected
-import '@phazr/react-custom-cursor/cursor.css';
+import '@phazr/custom-cursor/cursor.css';
 function App() {
   return (
     <CursorProvider>
@@ -49,9 +49,9 @@ function App() {
 
 ```tsx
 // app/layout.tsx
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
 // Make sure import css also unless its wont work as expected
-import '@phazr/react-custom-cursor/cursor.css';
+import '@phazr/custom-cursor/cursor.css';
 export default function RootLayout({
   children,
 }: {
@@ -74,9 +74,9 @@ export default function RootLayout({
 
 ```tsx
 // pages/_app.tsx
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
 // Make sure import css also unless its wont work as expected
-import '@phazr/react-custom-cursor/cursor.css';
+import '@phazr/custom-cursor/cursor.css';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -94,7 +94,7 @@ export default function App({ Component, pageProps }: AppProps) {
 ### Using Built-in Cursor Variants
 
 ```tsx
-import { useCursor } from '@phazr/react-custom-cursor';
+import { useCursor } from '@phazr/custom-cursor';
 
 function InteractiveElements() {
   const { setVariant } = useCursor();
@@ -137,7 +137,7 @@ function InteractiveElements() {
 ### Custom Cursor Configuration
 
 ```tsx
-import { useCursor } from '@phazr/react-custom-cursor';
+import { useCursor } from '@phazr/custom-cursor';
 
 function CustomCursorExample() {
   const { setVariant, setCustomConfig } = useCursor();
@@ -170,9 +170,9 @@ function CustomCursorExample() {
 ### Custom Spring Configuration
 
 ```tsx
-import { Cursor } from '@phazr/react-custom-cursor';
+import { Cursor } from '@phazr/custom-cursor';
 // Make sure import css also unless its wont work as expected
-import '@phazr/react-custom-cursor/cursor.css';
+import '@phazr/custom-cursor/cursor.css';
 function App() {
   return (
     <CursorProvider>
@@ -191,9 +191,9 @@ function App() {
 ### Touch Device Configuration
 
 ```tsx
-import { CursorProvider } from '@phazr/react-custom-cursor';
+import { CursorProvider } from '@phazr/custom-cursor';
 // Make sure import css also unless its wont work as expected
-import '@phazr/react-custom-cursor/cursor.css';
+import '@phazr/custom-cursor/cursor.css';
 function App() {
   return (
     <CursorProvider enableOnTouch={true}>
@@ -277,7 +277,7 @@ interface CustomCursorConfig {
 ### Creating Interactive Hover Effects
 
 ```tsx
-import { useCursor } from '@phazr/react-custom-cursor';
+import { useCursor } from '@phazr/custom-cursor';
 
 function Portfolio() {
   const { setVariant, setCustomConfig } = useCursor();

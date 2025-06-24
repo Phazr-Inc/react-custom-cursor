@@ -7,7 +7,7 @@ export default function Examples() {
           Using Built-in Cursor Variants
         </h2>
         <pre className="bg-gray-900 text-white rounded px-3 py-2 mt-2 font-mono text-sm whitespace-pre">{`
-import { useCursor } from '@phazr/react-custom-cursor';
+import { useCursor } from '@phazr/custom-cursor';
 
 function InteractiveElements() {
   const { setVariant } = useCursor();
@@ -52,7 +52,7 @@ function InteractiveElements() {
           Custom Cursor Configuration
         </h2>
         <pre className="bg-gray-900 text-white rounded px-3 py-2 mt-2 font-mono text-sm whitespace-pre">{`
-import { useCursor } from '@phazr/react-custom-cursor';
+import { useCursor } from '@phazr/custom-cursor';
 
 function CustomCursorExample() {
   const { setVariant, setCustomConfig } = useCursor();
@@ -87,8 +87,8 @@ function CustomCursorExample() {
           Custom Spring Configuration
         </h2>
         <pre className="bg-gray-900 text-white rounded px-3 py-2 mt-2 font-mono text-sm whitespace-pre">{`
-import { Cursor } from '@phazr/react-custom-cursor';
-import '@phazr/react-custom-cursor/cursor.css';
+import { Cursor } from '@phazr/custom-cursor';
+import '@phazr/custom-cursor/cursor.css';
 function App() {
   return (
     <CursorProvider>
@@ -109,8 +109,8 @@ function App() {
           Touch Device Configuration
         </h2>
         <pre className="bg-gray-900 text-white rounded px-3 py-2 mt-2 font-mono text-sm whitespace-pre">{`
-import { CursorProvider } from '@phazr/react-custom-cursor';
-import '@phazr/react-custom-cursor/cursor.css';
+import { CursorProvider } from '@phazr/custom-cursor';
+import '@phazr/custom-cursor/cursor.css';
 function App() {
   return (
     <CursorProvider enableOnTouch={true}>

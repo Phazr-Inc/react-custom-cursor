@@ -5,7 +5,7 @@ export default function GettingStarted() {
     <div className="min-h-full">
       <PageHeader
         title="Getting Started"
-        description="Get up and running with @phazr/react-custom-cursor in your React application."
+        description="Get up and running with @phazr/custom-cursor in your React application."
       />
       <div className="max-w-3xl mx-auto px-4 pb-12">
         <section className="mb-8">
@@ -13,7 +13,7 @@ export default function GettingStarted() {
           <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
             <p className="mb-2">Install the package and its peer dependency:</p>
             <pre className="bg-gray-900 text-white dark:bg-black rounded-md px-4 py-3 font-mono text-sm overflow-x-auto">
-              pnpm add @phazr/react-custom-cursor motion
+              pnpm add @phazr/custom-cursor motion
             </pre>
           </div>
         </section>
@@ -32,8 +32,8 @@ export default function GettingStarted() {
               :
             </p>
             <pre className="bg-gray-900 text-white dark:bg-black rounded-md px-4 py-3 font-mono text-sm overflow-x-auto mt-2">{`
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
-import '@phazr/react-custom-cursor/cursor.css';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
+import '@phazr/custom-cursor/cursor.css';
 
 function App() {
   return (
@@ -57,8 +57,8 @@ function App() {
               :
             </p>
             <pre className="bg-gray-900 text-white dark:bg-black rounded-md px-4 py-3 font-mono text-sm overflow-x-auto mt-2">{`
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
-import '@phazr/react-custom-cursor/cursor.css';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
+import '@phazr/custom-cursor/cursor.css';
 
 export default function RootLayout({ children }) {
   return (

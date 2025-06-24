@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { CursorProvider, Cursor } from '@phazr/react-custom-cursor';
-import '@phazr/react-custom-cursor/cursor.css';
+import { CursorProvider, Cursor } from '@phazr/custom-cursor';
+import '@phazr/custom-cursor/cursor.css';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
