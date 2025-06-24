@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'AmsterdamOne';
+  src: url('./fonts/AmsterdamOne.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  size: 1rem;
+  line-height: 1.5rem;
+}
+
 .phazr-cursor-none {
   cursor: none !important;
 }
@@ -28,7 +37,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: 'AmsterdamOne', cursive, sans-serif;
+  font-weight: 900;
 }
 
 /* Responsive behavior */

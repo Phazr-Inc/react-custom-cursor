@@ -3,22 +3,36 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import { copyFileSync, existsSync, mkdirSync } from 'fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { visualizer } from 'rollup-plugin-visualizer';
 
-// Custom plugin to copy CSS
-const copyCSS = () => ({
-  name: 'copy-css',
+// Custom plugin to copy CSS and fonts
+const copyAssets = () => ({
+  name: 'copy-assets',
   generateBundle() {
-    // Ensure dist directory exists
+    // Ensure dist and dist/fonts directories exist
     if (!existsSync('dist')) {
       mkdirSync('dist', { recursive: true });
+    }
+    if (!existsSync('dist/fonts')) {
+      mkdirSync('dist/fonts', { recursive: true });
     }
 
     // Copy CSS file
     if (existsSync('src/cursor.css')) {
       copyFileSync('src/cursor.css', 'dist/cursor.css');
       console.log('✅ CSS file copied to dist/cursor.css');
+    }
+
+    // Copy all files from src/fonts to dist/fonts
+    if (existsSync('src/fonts')) {
+      const fontFiles = readdirSync('src/fonts');
+      fontFiles.forEach((file) => {
+        const srcPath = `src/fonts/${file}`;
+        const destPath = `dist/fonts/${file}`;
+        copyFileSync(srcPath, destPath);
+        console.log(`✅ Font file copied to dist/fonts/${file}`);
+      });
     }
   },
 });
@@ -87,7 +101,7 @@ export default {
       minimize: true,
     }),
     preserveUseClient(), // Add the custom plugin
-    copyCSS(),
+    copyAssets(),
     visualizer({ open: true }),
   ],
   external: ['react', 'react-dom', 'motion', 'react/jsx-runtime'],

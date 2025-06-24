@@ -22,7 +22,7 @@
     "dev:rollup": "rollup -c -w",
     "dev": "pnpm --filter next15 dev",
     "lint": "eslint .",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\" \"*.md\" \"*.json\" \"docs/**/*.{md,js,ts,tsx,css}\"",
+    "format": "prettier --write . --ignore-path ./gitignore",
     "type-check": "tsc --noEmit",
     "prepare": "husky",
     "prepublishOnly": "pnpm run build && pnpm run type-check",
